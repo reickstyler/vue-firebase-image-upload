@@ -11,6 +11,10 @@
           aria-label="Menu"
         />
 
+        <q-btn flat dense round @click="takePicture">
+          <q-icon name="camera" />
+        </q-btn>
+
         <q-toolbar-title>
           Quasar App
         </q-toolbar-title>
@@ -91,12 +95,20 @@
 </template>
 
 <script>
+import { EventBus } from '../services/event-bus.js'
+
 export default {
   name: 'MyLayout',
 
   data () {
     return {
       leftDrawerOpen: false
+    }
+  },
+
+  methods: {
+    takePicture () {
+      EventBus.$emit('takePicture')
     }
   }
 }
