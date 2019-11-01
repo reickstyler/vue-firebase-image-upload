@@ -1,12 +1,12 @@
 async function getCameraFileObject () {
   return new Promise((resolve, reject) => {
-    let camera = navigator.camera
+    let Camera = navigator.Camera
 
     const options = {
       quality: 50,
-      destinationType: camera.DestinationType.FILE_URI,
-      encodingType: camera.EncodingType.JPG,
-      mediaType: camera.MediaType.PICTURE,
+      destinationType: Camera.DestinationType.DATA_URL,
+      encodingType: Camera.EncodingType.JPG,
+      mediaType: Camera.MediaType.PICTURE,
       saveToPhotoAlbum: true,
       correctOrientation: true
     }

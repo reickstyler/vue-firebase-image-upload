@@ -74,6 +74,17 @@ module.exports = function (ctx) {
             formatter: require('eslint').CLIEngine.getFormatter('stylish')
           }
         })
+      },
+
+      extendWebpack(cfg) {
+        cfg.module.rules.push({
+          test: /\.worker\.js$/,
+          loader: 'workerize-loader',
+        })
+      },
+    
+      chainWebpack (chain, { isServer, isClient }) {
+        chain.output.globalObject('self')
       }
     },
 
